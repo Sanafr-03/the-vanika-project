@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanika - Seller Dashboard</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="VANIKA.png">
+    <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="seller.css">
+</head>
+<body>
+    <nav>
+        <div class="brand">
+            <div class="brand-logo">
+                <img src="VANIKA.png" alt="Vanika Logo">
+            </div>
+            <a href="#" class="logo">Vanika</a>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="../Customer/customer.html" class="nav-link">Customer Section
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link" id="specialRequestLink">Special Request
+                    <span class="notification-badge">2</span>
+                </a>
+            </li>
+            <li><a href="#orders" class="nav-link">Orders Pending</a></li>
+            <li><a href="#completed-orders" class="nav-link">Orders Completed</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <button class="back-to-top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="white" width="20" height="20">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+        </svg>
+    </button>
+
+    <!-- Special Requests Popup -->
+    <div class="special-requests-popup" id="specialRequestsPopup">
+        <div class="special-requests-header">
+            <h3 class="special-requests-title">Special Requests (2)</h3>
+            <button class="close-requests" id="closeRequests">&times;</button>
+        </div>
+        <div class="request-item">
+            <div class="request-product">Custom Bamboo Chair</div>
+            <div class="request-message">I would like to order a custom bamboo chair with armrests and a higher backrest. Can you make it?</div>
+            <div class="request-phone">Phone: +91 98XXXXXX21</div>
+            <div class="request-actions">
+                <button class="request-btn accept-btn">Accept</button>
+                <button class="request-btn decline-btn">Decline</button>
+            </div>
+        </div>
+        <div class="request-item">
+            <div class="request-product">Bamboo Lamp with Dimmer</div>
+            <div class="request-message">Looking for a bamboo lamp. Do you have this option available?</div>
+            <div class="request-phone">Phone: +91 87XXXXXX34</div>
+            <div class="request-actions">
+                <button class="request-btn accept-btn">Accept</button>
+                <button class="request-btn decline-btn">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <!-- Products Section -->
+        <section class="products-section">
+            <h2 class="section-title">The Bamboo Craft</h2>
+            
+            <div class="products-grid">
+                <!-- Product Card 1 -->
+                <div class="product-card" data-id="1">
+                    <div class="product-image-container">
+                        <img src="bamboo p1.png" alt="Bamboo Product 1" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Bamboo Comb</h3>
+                        <p class="product-price">₹140</p>
+                        <span class="edit-link">Edit Details</span>
+                    </div>
+                </div>
+                
+                <!-- Product Card 2 -->
+                <div class="product-card" data-id="2">
+                    <div class="product-image-container">
+                        <img src="bamboo p2.png" alt="Bamboo Product 2" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Bamboo Tray</h3>
+                        <p class="product-price">₹650</p>
+                        <span class="edit-link">Edit Details</span>
+                    </div>
+                </div>
+                
+                <!-- Product Card 3 -->
+                <div class="product-card" data-id="3">
+                    <div class="product-image-container">
+                        <img src="bamboo p3.png" alt="Bamboo Product 3" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Bamboo Frame</h3>
+                        <p class="product-price">₹430</p>
+                        <span class="edit-link">Edit Details</span>
+                    </div>
+                </div>
+                
+                <!-- Product Card 4 -->
+                <div class="product-card" data-id="4">
+                    <div class="product-image-container">
+                        <img src="bamboo p4.png" alt="Bamboo Product 4" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Bamboo Glass</h3>
+                        <p class="product-price">₹850</p>
+                        <span class="edit-link">Edit Details</span>
+                    </div>
+                </div>
+                
+                <!-- Product Card 5 -->
+                <div class="product-card" data-id="5">
+                    <div class="product-image-container">
+                        <img src="bamboo p5.png" alt="Bamboo Product 5" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Bamboo container</h3>
+                        <p class="product-price">₹310</p>
+                        <span class="edit-link">Edit Details</span>
+                    </div>
+                </div>
+                
+                <!-- Add Product Card -->
+                <div class="add-product-card" id="addProductCard">
+                    <div class="add-product-icon">+</div>
+                    <div class="add-product-text">Add New Product</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Orders Pending Section -->
+        <section class="orders-section" id="orders">
+            <h2 class="section-title">Orders Pending</h2>
+            
+            <div class="orders-grid">
+                <!-- Order 1 -->
+                <div class="order-card">
+                    <div class="order-header">
+                        <div class="order-id">Order #VNK1001</div>
+                        <div class="order-date">21 March 2025</div>
+                    </div>
+                    <div class="order-details">
+                        <div class="order-product">
+                            <div class="order-product-image">
+                                <img src="bamboo p1.png" alt="Bamboo Basket">
+                            </div>
+                            <div class="order-product-info">
+                                <div class="order-product-name">Bamboo comb</div>
+                                <div class="order-product-price">₹140</div>
+                                <div class="order-product-qty">Qty: 1</div>
+                            </div>
+                        </div>
+                        <div class="order-product">
+                            <div class="order-product-image">
+                                <img src="bamboo p3.png" alt="Bamboo Lamp">
+                            </div>
+                            <div class="order-product-info">
+                                <div class="order-product-name">Bamboo Frame</div>
+                                <div class="order-product-price">₹430</div>
+                                <div class="order-product-qty">Qty: 2</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-total">
+                        <span>Total:</span>
+                        <span>₹1,000</span>
+                    </div>
+                    <div class="order-actions">
+                        <input type="checkbox" id="order1" class="complete-checkbox">
+                        <label for="order1" class="complete-label">Mark as Completed</label>
+                    </div>
+                </div>
+                
+                <!-- Order 2 -->
+                <div class="order-card">
+                    <div class="order-header">
+                        <div class="order-id">Order #VNK1002</div>
+                        <div class="order-date">23 March 2025</div>
+                    </div>
+                    <div class="order-details">
+                        <div class="order-product">
+                            <div class="order-product-image">
+                                <img src="bamboo p5.png" alt="Bamboo Table">
+                            </div>
+                            <div class="order-product-info">
+                                <div class="order-product-name">Bamboo Container</div>
+                                <div class="order-product-price">₹310</div>
+                                <div class="order-product-qty">Qty: 1</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-total">
+                        <span>Total:</span>
+                        <span>₹310</span>
+                    </div>
+                    <div class="order-actions">
+                        <input type="checkbox" id="order2" class="complete-checkbox">
+                        <label for="order2" class="complete-label">Mark as Completed</label>
+                    </div>
+                </div>
+                
+                <!-- Order 3 -->
+                <div class="order-card">
+                    <div class="order-header">
+                        <div class="order-id">Order #VNK1003</div>
+                        <div class="order-date">23 March 2025</div>
+                    </div>
+                    <div class="order-details">
+                        <div class="order-product">
+                            <div class="order-product-image">
+                                <img src="bamboo p2.png" alt="Bamboo Tray">
+                            </div>
+                            <div class="order-product-info">
+                                <div class="order-product-name">Bamboo Tray</div>
+                                <div class="order-product-price">₹650</div>
+                                <div class="order-product-qty">Qty: 3</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-total">
+                        <span>Total:</span>
+                        <span>₹1,950</span>
+                    </div>
+                    <div class="order-actions">
+                        <input type="checkbox" id="order3" class="complete-checkbox">
+                        <label for="order3" class="complete-label">Mark as Completed</label>
+                    </div>
+                </div>
+                
+                <!-- Order 4 -->
+                <div class="order-card">
+                    <div class="order-header">
+                        <div class="order-id">Order #VNK1004</div>
+                        <div class="order-date">01 April 2025</div>
+                    </div>
+                    <div class="order-details">
+                        <div class="order-product">
+                            <div class="order-product-image">
+                                <img src="bamboo p4.png" alt="Bamboo Chair">
+                            </div>
+                            <div class="order-product-info">
+                                <div class="order-product-name">Bamboo Glass</div>
+                                <div class="order-product-price">₹850</div>
+                                <div class="order-product-qty">Qty: 2</div>
+                            </div>
+                        </div>
+                        <div class="order-product">
+                            <div class="order-product-image">
+                                <img src="bamboo p1.png" alt="Bamboo Basket">
+                            </div>
+                            <div class="order-product-info">
+                                <div class="order-product-name">Bamboo Comb</div>
+                                <div class="order-product-price">₹140</div>
+                                <div class="order-product-qty">Qty: 1</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-total">
+                        <span>Total:</span>
+                        <span>₹1,840</span>
+                    </div>
+                    <div class="order-actions">
+                        <input type="checkbox" id="order4" class="complete-checkbox">
+                        <label for="order4" class="complete-label">Mark as Completed</label>
+                    </div>
+                </div>
+                
+                <!-- Order 5 -->
+                <div class="order-card">
+                    <div class="order-header">
+                        <div class="order-id">Order #VNK1005</div>
+                        <div class="order-date">7 April 2025</div>
+                    </div>
+                    <div class="order-details">
+                        <div class="order-product">
+                            <div class="order-product-image">
+                                <img src="bamboo p3.png" alt="Bamboo Lamp">
+                            </div>
+                            <div class="order-product-info">
+                                <div class="order-product-name">Bamboo Frame</div>
+                                <div class="order-product-price">₹430</div>
+                                <div class="order-product-qty">Qty: 1</div>
+                            </div>
+                        </div>
+                        <div class="order-product">
+                            <div class="order-product-image">
+                                <img src="bamboo p2.png" alt="Bamboo Tray">
+                            </div>
+                            <div class="order-product-info">
+                                <div class="order-product-name">Bamboo Tray</div>
+                                <div class="order-product-price">₹650</div>
+                                <div class="order-product-qty">Qty: 1</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-total">
+                        <span>Total:</span>
+                        <span>₹1,080</span>
+                    </div>
+                    <div class="order-actions">
+                        <input type="checkbox" id="order5" class="complete-checkbox">
+                        <label for="order5" class="complete-label">Mark as Completed</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Orders Completed Section -->
+        <section class="orders-completed-section" id="completed-orders">
+            <h2 class="section-title">Orders Completed</h2>
+            
+            <div class="completed-orders-grid">
+                <!-- Completed Order 1 -->
+                <div class="completed-order-card">
+                    <div class="order-header">
+                        <div class="order-id">Order #VNK1006-C</div>
+                        <div class="order-date">10 March 2025</div>
+                    </div>
+                    <div class="order-details">
+                        <div class="order-product">
+                            <div class="order-product-image">
+                                <img src="bamboo p2.png" alt="Bamboo Tray">
+                            </div>
+                            <div class="order-product-info">
+                                <div class="order-product-name">Bamboo Tray</div>
+                                <div class="order-product-price">₹650</div>
+                                <div class="order-product-qty">Qty: 2</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-total">
+                        <span>Total:</span>
+                        <span>₹1,300</span>
+                    </div>
+                    <div class="customer-review">
+                        <div class="review-title">Customer Review:</div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="review-text">
+                            "Beautiful craftsmanship! The trays are even better than I expected. Will definitely order again."
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Completed Order 2 -->
+                <div class="completed-order-card">
+                    <div class="order-header">
+                        <div class="order-id">Order #VNK1007-C</div>
+                        <div class="order-date">8 March 2025</div>
+                    </div>
+                    <div class="order-details">
+                        <div class="order-product">
+                            <div class="order-product-image">
+                                <img src="bamboo p1.png" alt="Bamboo Basket">
+                            </div>
+                            <div class="order-product-info">
+                                <div class="order-product-name">Bamboo Comb</div>
+                                <div class="order-product-price">₹140</div>
+                                <div class="order-product-qty">Qty: 1</div>
+                            </div>
+                        </div>
+                        <div class="order-product">
+                            <div class="order-product-image">
+                                <img src="bamboo p3.png" alt="Bamboo Lamp">
+                            </div>
+                            <div class="order-product-info">
+                                <div class="order-product-name">Bamboo Frame</div>
+                                <div class="order-product-price">₹430</div>
+                                <div class="order-product-qty">Qty: 1</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-total">
+                        <span>Total:</span>
+                        <span>₹430</span>
+                    </div>
+                    <div class="customer-review">
+                        <div class="review-title">Customer Review:</div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-text">
+                            "Absolutely love my new bamboo Frame and comb! The quality is exceptional and they arrived well-packaged."
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Completed Order 3 -->
+                <div class="completed-order-card">
+                    <div class="order-header">
+                        <div class="order-id">Order #VNK1008-C</div>
+                        <div class="order-date">1 March 2025</div>
+                    </div>
+                    <div class="order-details">
+                        <div class="order-product">
+                            <div class="order-product-image">
+                                <img src="bamboo p4.png" alt="Bamboo Chair">
+                            </div>
+                            <div class="order-product-info">
+                                <div class="order-product-name">Bamboo Glass</div>
+                                <div class="order-product-price">₹850</div>
+                                <div class="order-product-qty">Qty: 2</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-total">
+                        <span>Total:</span>
+                        <span>₹1,700</span>
+                    </div>
+                    <div class="customer-review">
+                        <div class="review-title">Customer Review:</div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="review-text">
+                            "The Glass are sturdy and comfortable. Delivery took a bit longer than expected but worth the wait."
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Completed Orders Stats -->
+            <div class="completed-stats">
+                <div class="completed-stats-title">Total Orders Completed</div>
+                <div class="completed-stats-number">42</div>
+                <div class="completed-stats-text">Your customers are happy with your products!</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <span class="notification-icon">✓</span>
+        <span class="notification-text">Order marked as completed!</span>
+    </div>
+
+    <!-- Edit Form Overlay -->
+    <div class="edit-form-overlay" id="editFormOverlay">
+        <div class="edit-form-container">
+            <div class="edit-form-header">
+                <h3 class="edit-form-title" id="formTitle">Edit Product Details</h3>
+                <button class="close-form" id="closeForm">&times;</button>
+            </div>
+            <form id="productEditForm">
+                <input type="hidden" id="productId">
+                <div class="image-upload-container" id="imageUploadContainer">
+                    <div class="image-preview" id="imagePreview">
+                        <span>No image selected</span>
+                    </div>
+                    <input type="file" id="productImageInput" accept="image/*" style="display: none;">
+                    <button type="button" class="image-upload-btn" id="uploadImageBtn">Upload Image</button>
+                </div>
+                <div class="form-group">
+                    <label for="editProductName">Product Name</label>
+                    <input type="text" id="editProductName" required>
+                </div>
+                <div class="form-group">
+                    <label for="editProductPrice">Price (₹)</label>
+                    <input type="number" id="editProductPrice" required>
+                </div>
+                <div class="form-group">
+                    <label for="editProductDiscount">Discount (%)</label>
+                    <input type="number" id="editProductDiscount" min="0" max="100" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="editProductDescription">Description</label>
+                    <textarea id="editProductDescription" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Categories</label>
+                    <div class="available-categories">
+                        <div class="available-category" draggable="true" data-category="decor">Home Decor</div>
+                        <div class="available-category" draggable="true" data-category="furniture">Furniture</div>
+                        <div class="available-category" draggable="true" data-category="kitchen">Kitchenware</div>
+                        <div class="available-category" draggable="true" data-category="garden">Garden</div>
+                        <div class="available-category" draggable="true" data-category="other">Other</div>
+                    </div>
+                    <div class="category-container" id="categoryContainer"></div>
+                    <input type="hidden" id="editProductCategories">
+                </div>
+                <div class="form-group">
+                    <label for="editProductStock">Stock Quantity</label>
+                    <input type="number" id="editProductStock" min="0" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelEdit">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+<script src="seller.js"></script>
+</body>
+</html>

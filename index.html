@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanika - Loading</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="VANIKA.png">
+    <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Varela Round', sans-serif;
+            background-color: #f4f4f4; /* Changed to #B0DDF2 */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-family: 'Eagle Lake', cursive;
+            font-size: 32px;
+            color: #000; /* Black text */
+            font-weight: bold;
+        }
+
+        .loading-gif-container {
+            width: 200px;
+            height: 100px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-gif {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none;
+        }
+
+        .loading-gif.active {
+            display: block;
+        }
+
+        .loading-bar-container {
+            width: 80%;
+            max-width: 300px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 8px;
+        }
+
+        .loading-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #efd489; /* Same as add to cart button */
+            border-radius: 10px;
+            transition: width 0.1s linear;
+        }
+
+        .loading-percentage {
+            font-size: 16px;
+            color: #302f2f;
+            margin: 10px 0;
+        }
+
+        .loading-text {
+            font-size: 18px;
+            color: #302e2e;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 28px;
+            }
+
+            .logo-img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .loading-gif-container {
+                width: 180px;
+                height: 90px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 24px;
+            }
+
+            .logo-img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .loading-gif-container {
+                width: 150px;
+                height: 75px;
+            }
+
+            .loading-text {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <div class="logo-container">
+            <div class="logo-img">
+                <img src="VANIKA.png" alt="Vanika Logo">
+            </div>
+            <h1 class="logo-text">Vanika</h1>
+        </div>
+
+        <div class="loading-gif-container">
+            <img src="loading1.gif" class="loading-gif active" id="gif1" alt="Loading animation 1">
+            <img src="loading2.gif" class="loading-gif" id="gif2" alt="Loading animation 2">
+            <img src="loading3.gif" class="loading-gif" id="gif3" alt="Loading animation 3">
+            <img src="loading4.gif" class="loading-gif" id="gif4" alt="Loading animation 4">
+        </div>
+
+        <div class="loading-bar-container">
+            <div class="loading-bar" id="loadingBar"></div>
+        </div>
+        <div class="loading-percentage" id="loadingPercentage">0%</div>
+        <p class="loading-text" data-english="Preparing your experience..." data-hindi="आपका अनुभव तैयार किया जा रहा है...">Preparing your experience...</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingBar = document.getElementById('loadingBar');
+            const loadingPercentage = document.getElementById('loadingPercentage');
+            const gifs = [
+                document.getElementById('gif1'),
+                document.getElementById('gif2'),
+                document.getElementById('gif3'),
+                document.getElementById('gif4')
+            ];
+            const loadingText = document.querySelector('.loading-text');
+            
+            let currentGifIndex = 0;
+            const totalDuration = 5500; // 8 seconds
+            const gifDuration = 1500; // 2 seconds per GIF
+            const updateInterval = 50; // Update every 50ms for smooth progress
+            const totalUpdates = totalDuration / updateInterval;
+            let currentUpdate = 0;
+            
+            // Set initial active GIF
+            gifs.forEach((gif, index) => {
+                gif.classList.toggle('active', index === 0);
+            });
+            
+            // Start loading animation
+            const loadingInterval = setInterval(() => {
+                currentUpdate++;
+                const progress = (currentUpdate / totalUpdates) * 100;
+                
+                // Update progress bar and percentage
+                loadingBar.style.width = `${progress}%`;
+                loadingPercentage.textContent = `${Math.min(100, Math.floor(progress))}%`;
+                
+                // Change GIF every 2 seconds
+                if (currentUpdate % (gifDuration / updateInterval) === 0) {
+                    gifs[currentGifIndex].classList.remove('active');
+                    currentGifIndex = (currentGifIndex + 1) % gifs.length;
+                    gifs[currentGifIndex].classList.add('active');
+                }
+                
+                // Complete loading
+                if (currentUpdate >= totalUpdates) {
+                    clearInterval(loadingInterval);
+                    loadingPercentage.textContent = "100%";
+                    loadingBar.style.width = "100%";
+                    
+                    // Redirect after completion
+                    setTimeout(() => {
+                        window.location.href = "homepage.html"; // Change to your desired redirect path
+                    }, 500);
+                }
+            }, updateInterval);
+        });
+    </script>
+</body>
+</html>

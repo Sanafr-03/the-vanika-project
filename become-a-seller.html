@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become a Seller | Vanika</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="VANIKA.png">
+    <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Varela Round', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .seller-form-container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+        }
+
+        .form-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .form-title {
+            font-family: 'Eagle Lake', cursive;
+            font-size: 28px;
+            color: #2a6496;
+            margin-bottom: 10px;
+        }
+
+        .form-subtitle {
+            color: #555;
+            font-size: 16px;
+        }
+
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #FFEDBB;
+            border: none;
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .language-toggle:hover {
+            background-color: #f5e1a8;
+        }
+
+        .seller-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #B0DDF2;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #FFEDBB;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 237, 187, 0.3);
+        }
+
+        .file-input-container {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-input-button {
+            border: 2px dashed #B0DDF2;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background-color: #f8f9fa;
+        }
+
+        .file-input-button:hover {
+            background-color: #f0f8ff;
+            border-color: #2a6496;
+        }
+
+        .file-input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .file-input-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            color: #555;
+        }
+
+        .file-input-text i {
+            font-size: 24px;
+            color: #2a6496;
+        }
+
+        .file-name {
+            margin-top: 5px;
+            font-size: 12px;
+            color: #2a6496;
+            font-weight: 600;
+        }
+
+        .optional-text {
+            font-size: 12px;
+            color: #777;
+            font-style: italic;
+        }
+
+        .submit-btn {
+            padding: 12px;
+            background-color: #FFEDBB;
+            border: 2px solid #e6d19e;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+            font-family: 'Varela Round', sans-serif;
+        }
+
+        .submit-btn:hover {
+            background-color: #f5e1a8;
+        }
+
+        .confirmation-message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .confirmation-message.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .message-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            transform: translateY(-50px);
+            transition: transform 0.3s ease;
+        }
+
+        .confirmation-message.active .message-container {
+            transform: translateY(0);
+        }
+
+        .message-icon {
+            font-size: 50px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .message-text {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .seller-form-container {
+                padding: 20px;
+            }
+
+            .form-title {
+                font-size: 24px;
+            }
+
+            .form-logo {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .form-title {
+                font-size: 22px;
+            }
+
+            .form-subtitle {
+                font-size: 14px;
+            }
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            color: #2a6496;
+            background-color: #FFEDBB;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background-color 0.3s;
+            z-index: 10;
+        }
+        
+        .back-button:hover {
+            background-color: #f5e1a8;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="seller-form-container">
+        <a href="homepage.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back
+        </a>
+        <button class="language-toggle" id="languageToggle">
+            <i class="fas fa-language"></i>
+            <span class="language-text">हिंदी</span>
+        </button>
+        
+        <div class="form-header">
+            <div class="form-logo">
+                <img src="images/VANIKA.png" alt="Vanika Logo">
+            </div>
+            <h1 class="form-title" data-english="Become a seller with help of Vanika" data-hindi="वाणिका के साथ विक्रेता बनें">Become a seller with help of Vanika</h1>
+            <p class="form-subtitle" data-english="Fill the form below to join our seller community" data-hindi="हमारे विक्रेता समुदाय में शामिल होने के लिए नीचे दिया गया फॉर्म भरें">Fill the form below to join our seller community</p>
+        </div>
+        
+        <form class="seller-form" id="sellerForm">
+            <div class="form-group">
+                <label for="name" data-english="Full Name" data-hindi="पूरा नाम">Full Name</label>
+                <input type="text" id="name" name="name" required data-english-placeholder="Enter your full name" data-hindi-placeholder="अपना पूरा नाम दर्ज करें">
+            </div>
+            
+            <div class="form-group">
+                <label for="phone" data-english="Phone Number" data-hindi="फोन नंबर">Phone Number</label>
+                <input type="number" id="phone" name="phone" required data-english-placeholder="Enter your phone number" data-hindi-placeholder="अपना फोन नंबर दर्ज करें">
+            </div>
+            
+            <div class="form-group">
+                <label for="email" data-english="Email Address" data-hindi="ईमेल पता">Email Address</label>
+                <input type="email" id="email" name="email" data-english-placeholder="Enter your email (optional)" data-hindi-placeholder="अपना ईमेल दर्ज करें (वैकल्पिक)">
+                <span class="optional-text" data-english="(Optional)" data-hindi="(वैकल्पिक)">(Optional)</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="address" data-english="Address" data-hindi="पता">Address</label>
+                <textarea id="address" name="address" rows="3" required data-english-placeholder="Enter your complete address" data-hindi-placeholder="अपना पूरा पता दर्ज करें"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label data-english="Identity Proof" data-hindi="पहचान प्रमाण">Identity Proof</label>
+                <div class="file-input-container">
+                    <div class="file-input-button">
+                        <div class="file-input-text">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span class="upload-text" data-english="Click to upload identity proof (Aadhar, PAN, etc.)" data-hindi="पहचान प्रमाण अपलोड करने के लिए क्लिक करें (आधार, पैन, आदि)">Click to upload identity proof (Aadhar, PAN, etc.)</span>
+                            <span class="file-name" id="fileName"></span>
+                        </div>
+                    </div>
+                    <input type="file" id="identityProof" name="identityProof" class="file-input" accept="image/*" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="productType" data-english="What do you sell?" data-hindi="आप क्या बेचते हैं?">What do you sell?</label>
+                <select id="productType" name="productType" required>
+                    <option value="" disabled selected data-english="Select product type" data-hindi="उत्पाद प्रकार चुनें">Select product type</option>
+                    <option value="bamboo" data-english="Bamboo Products" data-hindi="बांस उत्पाद">Bamboo Products</option>
+                    <option value="food" data-english="Snacks & Food" data-hindi="स्नैक्स और खाना">Snacks & Food</option>
+                    <option value="pottery" data-english="Pottery Products" data-hindi="मिट्टी के बर्तन">Pottery Products</option>
+                    <option value="other" data-english="Other" data-hindi="अन्य">Other</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="gst" data-english="GST Number (if available)" data-hindi="जीएसटी नंबर (यदि उपलब्ध हो)">GST Number (if available)</label>
+                <input type="text" id="gst" name="gst" data-english-placeholder="Enter GST number (optional)" data-hindi-placeholder="जीएसटी नंबर दर्ज करें (वैकल्पिक)">
+                <span class="optional-text" data-english="(Optional)" data-hindi="(वैकल्पिक)">(Optional)</span>
+            </div>
+            
+            <button type="submit" class="submit-btn" data-english="Submit Application" data-hindi="आवेदन जमा करें">Submit Application</button>
+        </form>
+    </div>
+    
+    <div class="confirmation-message" id="confirmationMessage">
+        <div class="message-container">
+            <div class="message-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 class="message-text" data-english="We will reach you soon!" data-hindi="हम जल्द ही आपसे संपर्क करेंगे!">We will reach you soon!</h2>
+        </div>
+    </div>
+
+    <script>
+        // Language toggle functionality
+        const languageToggle = document.getElementById('languageToggle');
+        const languageText = document.querySelector('.language-text');
+        const elementsToTranslate = document.querySelectorAll('[data-english], [data-english-placeholder]');
+        let currentLanguage = 'english';
+
+        languageToggle.addEventListener('click', function() {
+            currentLanguage = currentLanguage === 'english' ? 'hindi' : 'english';
+            languageText.textContent = currentLanguage === 'english' ? 'हिंदी' : 'English';
+            
+            // Translate all elements
+            elementsToTranslate.forEach(element => {
+                if (element.hasAttribute('data-english')) {
+                    const englishText = element.getAttribute('data-english');
+                    const hindiText = element.getAttribute('data-hindi');
+                    element.textContent = currentLanguage === 'english' ? englishText : hindiText;
+                }
+                
+                if (element.hasAttribute('data-english-placeholder')) {
+                    const englishPlaceholder = element.getAttribute('data-english-placeholder');
+                    const hindiPlaceholder = element.getAttribute('data-hindi-placeholder');
+                    element.placeholder = currentLanguage === 'english' ? englishPlaceholder : hindiPlaceholder;
+                }
+            });
+            
+            // Translate select options
+            const selectOptions = document.querySelectorAll('#productType option');
+            selectOptions.forEach(option => {
+                if (option.hasAttribute('data-english')) {
+                    const englishText = option.getAttribute('data-english');
+                    const hindiText = option.getAttribute('data-hindi');
+                    option.textContent = currentLanguage === 'english' ? englishText : hindiText;
+                }
+            });
+        });
+
+        // File input display
+        const fileInput = document.getElementById('identityProof');
+        const fileNameDisplay = document.getElementById('fileName');
+
+        fileInput.addEventListener('change', function() {
+            if (this.files && this.files.length > 0) {
+                fileNameDisplay.textContent = this.files[0].name;
+            } else {
+                fileNameDisplay.textContent = '';
+            }
+        });
+
+        // Form submission
+        const sellerForm = document.getElementById('sellerForm');
+        const confirmationMessage = document.getElementById('confirmationMessage');
+
+        sellerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show confirmation message
+            confirmationMessage.classList.add('active');
+            
+            // After 5 seconds, redirect to another page
+            setTimeout(() => {
+                // Replace '/thank-you.html' with your actual path
+                window.location.href = 'homepage.html';
+            }, 5000);
+            
+            // In a real application, you would send the form data to a server here
+            // For demo purposes, we're just showing the confirmation message
+        });
+
+        // Initialize placeholders
+        document.addEventListener('DOMContentLoaded', function() {
+            elementsToTranslate.forEach(element => {
+                if (element.hasAttribute('data-english-placeholder')) {
+                    element.placeholder = element.getAttribute('data-english-placeholder');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

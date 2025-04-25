@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanika</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="VANIKA.png">
+    <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="customer.css">
+</head>
+<body>
+    <nav>
+        <div class="brand">
+            <div class="brand-logo">
+                <img src="VANIKA.png" alt="Vanika Logo">
+            </div>
+            <a href="../homepage.html" class="logo">Vanika</a>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search for bamboo, food & pottery...">
+        </div>
+        
+        <div class="nav-actions">
+            <button class="filter-btn" id="filterBtn">
+                <i class="fas fa-sliders-h action-icon"></i>
+                <span>Filter</span>
+            </button>
+            
+            <div class="cart-container">
+                <button class="cart-btn">
+                    <i class="fas fa-shopping-cart action-icon"></i>
+                    <span>Cart</span>
+                </button>
+                <span class="cart-badge" id="cartBadge">0</span>
+            </div>
+            
+            <button class="login-btn" id="loginBtn">
+                <i class="fas fa-user action-icon"></i>
+                <span>Login</span>
+            </button>
+        </div>
+    </nav>
+
+    <button class="back-to-top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="white" width="20" height="20">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+        </svg>
+    </button>
+    
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-container">
+            <div class="login-header">
+                <div class="login-logo">
+                    <img src="VANIKA.png" alt="Vanika Logo">
+                </div>
+                <h3 class="login-title">Login to Vanika</h3>
+                <button class="close-login" id="closeLogin">&times;</button>
+            </div>
+            
+            <form id="loginForm">
+                <div class="login-form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                
+                <div class="login-form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                
+                <button type="submit" class="login-btn-submit">Login</button>
+                
+                <div class="login-options">
+                    <button type="button" class="social-login-btn google-btn">
+                        <i class="fab fa-google"></i>
+                        Continue with Google
+                    </button>
+                    
+                    <button type="button" class="social-login-btn apple-btn">
+                        <i class="fab fa-apple"></i>
+                        Continue with Apple
+                    </button>
+                </div>
+                
+                <div class="login-footer">
+                    Don't have an account? <a href="#" class="signup-link">Sign up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Filter Dropdown -->
+    <div class="filter-dropdown" id="filterDropdown">
+        <div class="filter-header">
+            <h3 class="filter-title">Filter Products</h3>
+            <button class="close-filter" id="closeFilter">&times;</button>
+        </div>
+        
+        <div class="filter-group">
+            <h4 class="filter-group-title">Categories</h4>
+            <div class="filter-option">
+                <input type="radio" id="cat-all" name="category" checked>
+                <label for="cat-all">All Categories</label>
+            </div>
+            <div class="filter-option">
+                <input type="radio" id="cat-bamboo" name="category">
+                <label for="cat-bamboo">Bamboo Products</label>
+            </div>
+            <div class="filter-option">
+                <input type="radio" id="cat-food" name="category">
+                <label for="cat-food">Organic Food</label>
+            </div>
+            <div class="filter-option">
+                <input type="radio" id="cat-pottery" name="category">
+                <label for="cat-pottery">Pottery</label>
+            </div>
+        </div>
+        
+        <div class="filter-group">
+            <h4 class="filter-group-title">Price Range</h4>
+            <div class="filter-option">
+                <input type="radio" id="price-all" name="price" checked>
+                <label for="price-all">All Prices</label>
+            </div>
+            <div class="filter-option">
+                <input type="radio" id="price-low" name="price">
+                <label for="price-low">Under ₹500</label>
+            </div>
+            <div class="filter-option">
+                <input type="radio" id="price-medium" name="price">
+                <label for="price-medium">₹500 - ₹1500</label>
+            </div>
+            <div class="filter-option">
+                <input type="radio" id="price-high" name="price">
+                <label for="price-high">Over ₹1500</label>
+            </div>
+        </div>
+        
+        <div class="filter-group">
+            <h4 class="filter-group-title">Rating</h4>
+            <div class="filter-option">
+                <input type="radio" id="rating-all" name="rating" checked>
+                <label for="rating-all">All Ratings</label>
+            </div>
+            <div class="filter-option">
+                <input type="radio" id="rating-4" name="rating">
+                <label for="rating-4">4 Stars & Above</label>
+            </div>
+            <div class="filter-option">
+                <input type="radio" id="rating-3" name="rating">
+                <label for="rating-3">3 Stars & Above</label>
+            </div>
+        </div>
+        
+        <button class="filter-apply" id="applyFilter">Apply Filters</button>
+    </div>
+    
+    <div class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">Handcrafted Treasures</h1>
+            <p class="hero-subtitle">Discover our exquisite collection of bamboo products, organic food items, and beautiful pottery - all crafted with love by skilled artisans across India.</p>
+            <div class="hero-text">Experience the Art of Sustainable Living</div>
+        </section>
+        
+        <!-- Products Section -->
+        <section class="products-section">
+            <h2 class="section-title">Our Collection</h2>
+            
+            <div class="products-grid">
+                <!-- Bamboo Product 1 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="bamboo/bamboo1.png" alt="Bamboo Basket" class="product-image">
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Bamboo Comb</h3>
+                        <div class="product-price-container">
+                            <span class="product-price">₹140</span>
+                            <span class="product-original-price">₹170</span>
+                            <span class="product-discount">20% off</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">(42)</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product-id="1">
+                            <i class="fas fa-shopping-cart cart-icon"></i>
+                            Add to Cart
+                        </button>
+                        <a href="#" class="view-details">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Food Product 1 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="food/food1.png" alt="Organic Honey" class="product-image">
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Lemon Pickle</h3>
+                        <div class="product-price-container">
+                            <span class="product-price">₹350</span>
+                            <span class="product-original-price">₹448</span>
+                            <span class="product-discount">22% off</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-count">(38)</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product-id="2">
+                            <i class="fas fa-shopping-cart cart-icon"></i>
+                            Add to Cart
+                        </button>
+                        <a href="#" class="view-details">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Pottery Product 1 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="pottery/pottery1.png" alt="Clay Pot" class="product-image">
+                        <button class="wishlist-btn active">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Traditional Clay Pot</h3>
+                        <div class="product-price-container">
+                            <span class="product-price">₹250</span>
+                            <span class="product-original-price">₹316</span>
+                            <span class="product-discount">21% off</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-count">(56)</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product-id="3">
+                            <i class="fas fa-shopping-cart cart-icon"></i>
+                            Add to Cart
+                        </button>
+                        <a href="#" class="view-details">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Bamboo Product 2 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="bamboo/bamboo2.png" alt="Bamboo Lamp" class="product-image">
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Bamboo Tray</h3>
+                        <div class="product-price-container">
+                            <span class="product-price">₹650</span>
+                            <span class="product-original-price">₹764</span>
+                            <span class="product-discount">15% off</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-count">(34)</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product-id="4">
+                            <i class="fas fa-shopping-cart cart-icon"></i>
+                            Add to Cart
+                        </button>
+                        <a href="#" class="view-details">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Food Product 2 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="food/food2.png" alt="Organic Spices" class="product-image">
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Chilli Chutney</h3>
+                        <div class="product-price-container">
+                            <span class="product-price">₹65</span>
+                            <span class="product-original-price">₹80</span>
+                            <span class="product-discount">19% off</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">(29)</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product-id="5">
+                            <i class="fas fa-shopping-cart cart-icon"></i>
+                            Add to Cart
+                        </button>
+                        <a href="#" class="view-details">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Pottery Product 2 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="pottery/pottery2.png" alt="Hand-painted Bowl" class="product-image">
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Handmade Pottery Bottle</h3>
+                        <div class="product-price-container">
+                            <span class="product-price">₹120</span>
+                            <span class="product-original-price">₹144</span>
+                            <span class="product-discount">17% off</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-count">(23)</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product-id="6">
+                            <i class="fas fa-shopping-cart cart-icon"></i>
+                            Add to Cart
+                        </button>
+                        <a href="#" class="view-details">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Bamboo Product 3 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="bamboo/bamboo3.png" alt="Bamboo Chair" class="product-image">
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Bamboo Frame</h3>
+                        <div class="product-price-container">
+                            <span class="product-price">₹450</span>
+                            <span class="product-original-price">₹542</span>
+                            <span class="product-discount">17% off</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-count">(18)</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product-id="7">
+                            <i class="fas fa-shopping-cart cart-icon"></i>
+                            Add to Cart
+                        </button>
+                        <a href="#" class="view-details">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Food Product 3 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="food/food3.jpg" alt="Organic Tea" class="product-image">
+                        <button class="wishlist-btn active">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Dried Ginger Candy</h3>
+                        <div class="product-price-container">
+                            <span class="product-price">₹180</span>
+                            <span class="product-original-price">₹225</span>
+                            <span class="product-discount">20% off</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">(47)</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product-id="8">
+                            <i class="fas fa-shopping-cart cart-icon"></i>
+                            Add to Cart
+                        </button>
+                        <a href="#" class="view-details">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Pottery Product 3 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="pottery/pottery3.png" alt="Ceramic Mug" class="product-image">
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Artisan Pottery Mug</h3>
+                        <div class="product-price-container">
+                            <span class="product-price">350</span>
+                            <span class="product-original-price">₹466</span>
+                            <span class="product-discount">25% off</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-count">(31)</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product-id="9">
+                            <i class="fas fa-shopping-cart cart-icon"></i>
+                            Add to Cart
+                        </button>
+                        <a href="#" class="view-details">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Bamboo Product 4 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="bamboo/bamboo4.png" alt="Bamboo Tray" class="product-image">
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Bamboo Glass</h3>
+                        <div class="product-price-container">
+                            <span class="product-price">₹850</span>
+                            <span class="product-original-price">₹1049</span>
+                            <span class="product-discount">19% off</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-count">(28)</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product-id="10">
+                            <i class="fas fa-shopping-cart cart-icon"></i>
+                            Add to Cart
+                        </button>
+                        <a href="#" class="view-details">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Food Product 4 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="food/food4.jpg" alt="Organic Rice" class="product-image">
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Sesame Seeds Laddu</h3>
+                        <div class="product-price-container">
+                            <span class="product-price">₹120</span>
+                            <span class="product-original-price">₹150</span>
+                            <span class="product-discount">20% off</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">(35)</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product-id="11">
+                            <i class="fas fa-shopping-cart cart-icon"></i>
+                            Add to Cart
+                        </button>
+                        <a href="#" class="view-details">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Pottery Product 4 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="pottery/pottery4.png" alt="Clay Water Pot" class="product-image">
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Earthen Pot</h3>
+                        <div class="product-price-container">
+                            <span class="product-price">₹240</span>
+                            <span class="product-original-price">₹303</span>
+                            <span class="product-discount">21% off</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-count">(27)</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product-id="12">
+                            <i class="fas fa-shopping-cart cart-icon"></i>
+                            Add to Cart
+                        </button>
+                        <a href="#" class="view-details">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Bamboo Product 5 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="bamboo/bamboo5.png" alt="Bamboo Table" class="product-image">
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Bamboo container</h3>
+                        <div class="product-price-container">
+                            <span class="product-price">₹310</span>
+                            <span class="product-original-price">₹387</span>
+                            <span class="product-discount">20% off</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">(19)</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product-id="13">
+                            <i class="fas fa-shopping-cart cart-icon"></i>
+                            Add to Cart
+                        </button>
+                        <a href="#" class="view-details">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Food Product 5 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="food/food5.jpg" alt="Organic Flour" class="product-image">
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Mango Pickle</h3>
+                        <div class="product-price-container">
+                            <span class="product-price">₹110</span>
+                            <span class="product-original-price">₹152</span>
+                            <span class="product-discount">28% off</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-count">(42)</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product-id="14">
+                            <i class="fas fa-shopping-cart cart-icon"></i>
+                            Add to Cart
+                        </button>
+                        <a href="#" class="view-details">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Pottery Product 5 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="pottery/pottery5.png" alt="Decorative Vase" class="product-image">
+                        <button class="wishlist-btn active">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Earthen Plant Pot</h3>
+                        <div class="product-price-container">
+                            <span class="product-price">₹399</span>
+                            <span class="product-original-price">₹505</span>
+                            <span class="product-discount">21% off</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">(24)</span>
+                        </div>
+                        <button class="add-to-cart-btn" data-product-id="15">
+                            <i class="fas fa-shopping-cart cart-icon"></i>
+                            Add to Cart
+                        </button>
+                        <a href="#" class="view-details">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Houses Section -->
+        <section class="houses-section">
+            <h2 class="section-title">Our Houses</h2>
+            <div class="houses-grid">
+                <div class="house-card">
+                    <div class="house-icon">
+                        <img src="bamboo.png" alt="Bamboo House">
+                    </div>
+                    <h3 class="house-name">The Bamboo Craft</h3>
+                    <p class="house-description">Explore our exclusive collection of handcrafted bamboo products made by skilled artisans.</p>
+                    <a href="bambooH.html" class="explore-btn" data-tooltip="Click to Explore">Explore</a>
+                </div>
+                <div class="house-card">
+                    <div class="house-icon">
+                        <img src="snack.png" alt="Organic House">
+                    </div>
+                    <h3 class="house-name">The Organic Pantry</h3>
+                    <p class="house-description">Discover our range of organic food products sourced directly from farmers.</p>
+                    <a href="bambooH.html" class="explore-btn" data-tooltip="Coming soon...">Explore</a>
+                </div>
+                <div class="house-card">
+                    <div class="house-icon">
+                        <img src="pottery.png" alt="Pottery House">
+                    </div>
+                    <h3 class="house-name">The Clay Haven</h3>
+                    <p class="house-description">Experience the beauty of traditional pottery crafted with centuries-old techniques.</p>
+                    <a href="bambooH.html" class="explore-btn" data-tooltip="Coming soon...">Explore</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="VANIKA.png" alt="Vanika Logo">
+                    </div>
+                    <div class="footer-brand-name">Vanika</div>
+                </div>
+                <p class="footer-description">
+                    Vanika brings you the finest handcrafted bamboo products, organic food items, and exquisite pottery - all made by skilled Women artisans across India. Celebrate sustainable living with our eco-friendly collection.
+                </p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../homepage.html">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Order Tracking</a></li>
+                    <li><a href="#">Wishlist</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Bamboo Street, Bangalore</li>
+                    <li><i class="fas fa-phone"></i> +91 9876543210</li>
+                    <li><i class="fas fa-envelope"></i> info@vanika.com</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Vanika. All Rights Reserved. | Crafted with ❤️ in India</p>
+        </div>
+    </footer>
+
+    <script src="customer.js"></script>
+</body>
+</html>

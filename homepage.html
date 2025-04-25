@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanika</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="VANIKA.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Cabin+Sketch:wght@400;700&family=Cookie&family=Dancing+Script:wght@400..700&family=Great+Vibes&family=Jacquard+24&family=Monofett&family=Nabla&family=Rye&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Cabin+Sketch:wght@400;700&family=Cookie&family=Dancing+Script:wght@400..700&family=Gideon+Roman&family=Great+Vibes&family=Jacquard+24&family=Monofett&family=Nabla&family=Rye&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Cabin+Sketch:wght@400;700&family=Cookie&family=Dancing+Script:wght@400..700&family=Eagle+Lake&family=Gideon+Roman&family=Great+Vibes&family=Jacquard+24&family=Monofett&family=Nabla&family=Rye&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="css/slider.css" >
+    <link rel="stylesheet" href="css/overview.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/steps.css" >
+    <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/services.css" >
+    <link rel="stylesheet" href="css/reviews+footer.css" >
+    <link rel="stylesheet" href="homapage.css">
+</head>
+<body>
+   <!-- Language Selection Modal -->
+   <div class="language-modal" id="languageModal">
+    <div class="language-box">
+        <h2>भाषा चुनें / Choose Language</h2>
+        <p>कृपया अपनी पसंदीदा भाषा चुनें / Please select your preferred language</p>
+        <div class="language-options">
+            <button class="language-btn hindi" id="hindiBtn">हिंदी</button>
+            <button class="language-btn english" id="englishBtn">English</button>
+        </div>
+    </div>
+</div>
+
+<!-- Navigation Bar -->
+<nav>
+    <div class="logo-container">
+        <div class="logo">
+            <img src="images/VANIKA.png" alt="Vanika Logo">
+        </div>
+        <div class="brand-name">Vanika</div>
+    </div>
+
+    <div class="nav-links">
+        <a href="#seller-journey" class="nav-link" data-en="Become a Seller" data-hi="विक्रेता बनें"></a>
+        <a href="Customer/customer.html" data-en="Buy Products" data-hi="उत्पाद खरीदें">Buy Products</a>
+        <a href="Seller/login.html" data-en="Seller Login" data-hi="विक्रेता लॉगिन">Seller Login</a>
+        <a href="contact-us.html" data-en="Contact Us" data-hi="संपर्क करें">Contact Us</a>
+        <a href="help.html" data-en="Help" data-hi="सहायता">Help</a>
+    </div>
+
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#seller-journey" class="nav-link mobile-nav-link" 
+           data-en="Become a Seller" data-hi="विक्रेता बनें"></a>
+        <a href="Customer/customer.html" data-en="Buy Products" data-hi="उत्पाद खरीदें">Buy Products</a>
+        <a href="Seller/login.html" data-en="Seller Login" data-hi="विक्रेता लॉगिन">Seller Login</a>
+        <a href="contact-us.html" data-en="Contact Us" data-hi="संपर्क करें">Contact Us</a>
+        <a href="help.html" data-en="Help" data-hi="सहायता">Help</a>
+    </div>
+</nav>
+
+
+<!-- Main Content -->
+<div class="main-content">
+    <div class="book-container">
+        <!-- Book Cover with Spiral Binding -->
+        <div class="book-cover">
+            <div class="spiral-binding"></div>
+            <div class="spiral-cover"></div>
+            <h2 data-en="Welcome to Vanika" data-hi="वनिका में आपका स्वागत है">Welcome to Vanika</h2>
+        </div>
+
+        <!-- Book Pages with Spiral Binding -->
+        <div class="book-pages">
+            <div class="spiral-binding"></div>
+            <div class="spiral-cover"></div>
+            
+            <!-- Notebook Left Side - Taglines -->
+            <div class="book-left">
+                <div class="tagline-container">
+                    <div class="tagline active" id="tagline1" data-en="From Her Hands to Your Home – Ethical, Artisanal, Unique." data-hi="उनके हस्तशिल्प से आपके गृह तक – नैतिकता, शिल्पकला और विशिष्टता का अद्वितीय समागम।">"From Her Hands to Your Home – Ethical, Artisanal, Unique."</div>
+                    <div class="tagline" id="tagline2" data-en="Handmade with Heart, Priced with Respect." data-hi="हृदय से निर्मित प्रत्येक रचना, सम्मानपूर्वक मूल्यांकित।">"Handmade with Heart, Priced with Respect."</div>
+                    <div class="tagline" id="tagline4" data-en="Empowering Her Craft with Code and Connection." data-hi="कोड और संवाद से सजीव हो उसकी कला, सशक्त हो हर एक अभिव्यक्ति की धरा।">"Empowering Her Craft with Code and Connection."</div>
+                    <div class="tagline" id="tagline3" data-en="Rooted in Culture. Rising with Technology." data-hi="संस्कृति में गहराई से स्थापित, तकनीक के साथ निरंतर प्रगति की ओर।">"Rooted in Culture. Rising with Technology."</div>
+                    <div class="tagline" id="tagline5" data-en="From Craft to Click — Connecting Artisans to the world" data-hi="हुनर से डिजिटल दुनिया तक – शिल्पकारों को वैश्विक मंच से जोड़ने का सेतु।">"From Craft to Click — Connecting Artisans to the world"</div>
+                </div>
+            </div>
+
+            <!-- Notebook Right Side - Collage -->
+            <div class="book-right">
+                <div class="collage-container">
+                    <div class="collage-photo photo1">
+                        <img src="images/w1.jpeg" alt="Photo 1">
+                    </div>
+                    <div class="collage-photo photo2">
+                        <img src="images/w2.jpg" alt="Photo 2">
+                    </div>
+                    <div class="collage-photo photo3">
+                        <img src="images/w3.jpg" alt="Photo 3">
+                    </div>
+                    <div class="collage-photo photo4">
+                        <img src="images/w4.jpg" alt="Photo 4">
+                    </div>
+                    <div class="collage-photo photo5">
+                        <img src="images/w5.jpg" alt="Photo 5">
+                    </div>
+                    <div class="collage-photo photo6">
+                        <img src="images/w6.jpg" alt="Photo 6">
+                    </div>
+                    <div class="collage-photo photo7">
+                        <img src="images/w7.jpg" alt="Photo 7">
+                    </div>
+                    <div class="collage-photo photo8">
+                        <img src="images/w8.jpg" alt="Photo 8">
+                    </div>
+                    <div class="collage-photo photo9">
+                        <img src="images/w9.jpg" alt="Photo 9">
+                    </div>
+                    <div class="collage-photo photo10">
+                        <img src="images/w10.jpg" alt="Photo 10">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="intro-heading-section">
+    <div class="section-container">
+      <h2 class="section-title" data-en="Bringing Her Creations to Your Doorstep" data-hi="उसकी रचनाएँ अब आपके द्वार तक">
+        Bringing Her Creations to Your Doorstep
+      </h2>
+    </div>
+    <div class="slider-section">
+          <div class="slider" id="slider">
+            <div class="image-container" id="imageContainer"></div>
+            <div class="quote" id="quote" data-icon="🍯"></div>
+            <div class="dots">
+              <div class="dot" onclick="goToSlide(0)"></div>
+              <div class="dot" onclick="goToSlide(1)"></div>
+              <div class="dot" onclick="goToSlide(2)"></div>
+            </div>
+          </div>
+      
+    </div>
+</section>
+ 
+  
+<section class="artisan-section">
+    <div class="bamboo-pattern"></div>
+    
+    <!-- Floating bamboo decorations -->
+    <div class="floating-bamboo" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
+    <div class="floating-bamboo" style="top: 20%; right: 8%; animation-delay: 2s; width: 80px; height: 80px;"></div>
+    <div class="floating-bamboo" style="bottom: 15%; left: 10%; animation-delay: 4s; transform: scaleX(-1);"></div>
+    <div class="floating-bamboo" style="bottom: 25%; right: 15%; animation-delay: 6s; width: 120px; height: 120px;"></div>
+    
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title" data-en="Empowering Women Artisans" data-hi="महिला कारीगरों को सशक्त बनाना">Empowering Women Artisans</h2>
+        <p class="section-subtitle" data-en="Supporting women entrepreneurs creating beautiful bamboo, pottery, and food products with sustainable business solutions" data-hi="सुंदर बांस, मिट्टी के बर्तन और खाद्य उत्पाद बनाने वाली महिला उद्यमियों का समर्थन करना, टिकाऊ व्यापार समाधान के साथ">
+          Supporting women entrepreneurs creating beautiful bamboo, pottery, and food products with sustainable business solutions
+        </p>
+      </div>
+      
+      <div class="features-container">
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-store market-icon"></i>
+            </div>
+            <div class="feature-content">
+              <h3 class="feature-title" data-en="Digital Marketplace" data-hi="डिजिटल मार्केटप्लेस">Digital Marketplace</h3>
+              <p class="feature-desc" data-en="Showcase your bamboo crafts, pottery, and food products to a global audience of conscious consumers." data-hi="अपने बांस के शिल्प, मिट्टी के बर्तन और खाद्य उत्पादों को जागरूक उपभोक्ताओं के वैश्विक दर्शकों के सामने प्रस्तुत करें।">
+                Showcase your bamboo crafts, pottery, and food products to a global audience of conscious consumers.
+              </p>
+            </div>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-balance-scale fair-pricing-icon"></i>
+            </div>
+            <div class="feature-content">
+              <h3 class="feature-title" data-en="Fair Pricing" data-hi="उचित मूल्य निर्धारण">Fair Pricing</h3>
+              <p class="feature-desc" data-en="Learn how to properly value your craft and maximize profits while keeping products accessible." data-hi="अपने शिल्प को सही मूल्य देना सीखें और उत्पादों को सुलभ रखते हुए लाभ को अधिकतम करें।">
+                Learn how to properly value your craft and maximize profits while keeping products accessible.
+              </p>
+            </div>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-link direct-connection-icon"></i>
+            </div>
+            <div class="feature-content">
+              <h3 class="feature-title" data-en="Direct Connections" data-hi="सीधे संपर्क">Direct Connections</h3>
+              <p class="feature-desc" data-en="Build relationships with buyers who appreciate the story and skill behind each handmade piece." data-hi="खरीदारों के साथ संबंध बनाएं जो प्रत्येक हस्तनिर्मित वस्तु के पीछे की कहानी और कौशल की सराहना करते हैं।">
+                Build relationships with buyers who appreciate the story and skill behind each handmade piece.
+              </p>
+            </div>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-shipping-fast efficient-distribution-icon"></i>
+            </div>
+            <div class="feature-content">
+              <h3 class="feature-title" data-en="Efficient Distribution" data-hi="कुशल वितरण">Efficient Distribution</h3>
+              <p class="feature-desc" data-en="Reduce middlemen with streamlined logistics, ensuring more earnings go directly to you." data-hi="मध्यस्थों को कम करें और सुगम लॉजिस्टिक्स के साथ यह सुनिश्चित करें कि अधिक कमाई सीधे आपके पास पहुंचे।">
+                Reduce middlemen with streamlined logistics, ensuring more earnings go directly to you.
+              </p>
+            </div>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-users community-icon"></i>
+            </div>
+            <div class="feature-content">
+              <h3 class="feature-title" data-en="Supportive Community" data-hi="सहायक समुदाय">Supportive Community</h3>
+              <p class="feature-desc" data-en="Connect with fellow women artisans to share techniques and business knowledge." data-hi="अन्य महिला कारीगरों के साथ जुड़ें और तकनीकों और व्यावसायिक ज्ञान को साझा करें।">
+                Connect with fellow women artisans to share techniques and business knowledge.
+              </p>
+            </div>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-briefcase business-icon"></i>
+            </div>
+            <div class="feature-content">
+              <h3 class="feature-title" data-en="Business Resources" data-hi="व्यापार संसाधन">Business Resources</h3>
+              <p class="feature-desc" data-en="Access workshops and tools designed to help women artisans grow sustainably." data-hi="कार्यशालाओं और उपकरणों तक पहुंचें जो महिला कारीगरों को स्थायी रूप से विकसित होने में मदद करने के लिए डिज़ाइन किए गए हैं।">
+                Access workshops and tools designed to help women artisans grow sustainably.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline-section" id="seller-journey">
+    <div class="timeline-header">
+      <h2 data-en="Become a Seller" data-hi="विक्रेता बनें">Become a Seller</h2>
+      <p data-en="Start Your Online Selling Journey in 5 Simple Steps" data-hi="5 सरल चरणों में अपनी ऑनलाइन बिक्री यात्रा शुरू करें"></p>
+      <p data-en="No apps, no stress — just your talent and our support. We're here to make your journey easy." data-hi="कोई ऐप नहीं, कोई तनाव नहीं — बस आपकी प्रतिभा और हमारा समर्थन। हम आपकी यात्रा को आसान बनाने के लिए यहां हैं।"></p>
+    </div>
+  
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
+      
+      <div class="timeline-steps">
+        <!-- Step 1 -->
+        <div class="step-container">
+          <div class="step-number">1</div>
+          <div class="timeline-card left animate-card">
+            <div class="card-icon"><div class="card-icon">
+                <img src="images/sign-up.png" alt="Submit Form Icon" class="timeline-icon">
+              </div></div>
+            <h3 data-en="Submit a Simple Form" data-hi="एक सरल फॉर्म जमा करें"></h3>
+            <p data-en="Just share your basic information so we can understand your craft." data-hi="बस अपनी बुनियादी जानकारी साझा करें ताकि हम आपके शिल्प को समझ सकें।"></p>
+            <div class="craft-illustration" style="background-color: #f0f7fa;"></div>
+          </div>
+        </div>
+        
+        <!-- Step 2 -->
+        <div class="step-container">
+          <div class="step-number">2</div>
+          <div class="timeline-card right animate-card">
+            <div class="card-icon"><div class="card-icon">
+                <img src="images/customer-service.png" alt="Submit Form Icon" class="timeline-icon">
+              </div></div>
+            <h3 data-en="Get a Friendly Call From Us" data-hi="हमारी तरफ से एक मित्रतापूर्ण कॉल प्राप्त करें"></h3>
+            <p data-en="Our team will call you in Hindi or English, based on your comfort." data-hi="हमारी टीम आपको हिंदी या अंग्रेजी में कॉल करेगी, आपकी सुविधा के अनुसार।"></p>
+            <ul class="support-list">
+              <li data-en="How the platform works" data-hi="प्लेटफॉर्म कैसे काम करता है"></li>
+              <li data-en="How to price your products" data-hi="अपने उत्पादों की कीमत कैसे तय करें"></li>
+              <li data-en="How deliveries are handled" data-hi="डिलीवरी कैसे संभाली जाती है"></li>
+            </ul>
+            <div class="phone-illustration" style="background-color: #e8f5e9;"></div>
+          </div>
+        </div>
+        
+        <!-- Step 3 -->
+        <div class="step-container">
+          <div class="step-number">3</div>
+          <div class="timeline-card left animate-card">
+            <div class="card-icon" ><div class="card-icon">
+                <img src="images/form.png" alt="Submit Form Icon" class="timeline-icon">
+              </div></div>
+            <h3 data-en="Help with Product Listing" data-hi="उत्पाद सूची में सहायता"></h3>
+            <ul class="support-list">
+              <li data-en="Taking simple product photos using your phone" data-hi="अपने फोन का उपयोग करके सरल उत्पाद फोटो लेने में"></li>
+              <li data-en="Writing easy descriptions" data-hi="आसान विवरण लिखने में"></li>
+              <li data-en="Setting fair prices that value your craft" data-hi="उचित मूल्य निर्धारित करने में जो आपके शिल्प का मूल्यांकन करे"></li>
+            </ul>
+            <div class="camera-illustration" style="background-color: #f5efe8;"></div>
+          </div>
+        </div>
+        
+        <!-- Step 4 -->
+        <div class="step-container">
+          <div class="step-number">4</div>
+          <div class="timeline-card right animate-card">
+            <div class="card-icon" ><div class="card-icon">
+                <img src="images/launch.png" alt="Submit Form Icon" class="timeline-icon">
+              </div></div>
+            <h3 data-en="Your Products Go Live!" data-hi="आपके उत्पाद लाइव हो जाते हैं!"></h3>
+            <ul class="support-list">
+              <li data-en="Your products will appear on the website" data-hi="आपके उत्पाद वेबसाइट पर दिखाई देंगे"></li>
+              <li data-en="Customers across India can view and order them" data-hi="पूरे भारत के ग्राहक उन्हें देख और ऑर्डर कर सकते हैं"></li>
+              <li data-en="You will get notified when orders come in" data-hi="आपको सूचना मिलेगी जब ऑर्डर आएंगे"></li>
+            </ul>
+            <div class="live-illustration" style="background-color: #f0f7fa;"></div>
+          </div>
+        </div>
+        
+        <!-- Step 5 -->
+        <div class="step-container">
+          <div class="step-number">5</div>
+          <div class="timeline-card left animate-card">
+            <div class="card-icon"><div class="card-icon">
+                <img src="images/financial-profit.png" alt="Submit Form Icon" class="timeline-icon">
+              </div></div>
+            <h3 data-en="💸 Earn, Grow & Stay Connected" data-hi="💸 कमाएं, बढ़ें और जुड़े रहें"></h3>
+            <ul class="support-list">
+              <li data-en="You receive payments securely" data-hi="आपको भुगतान सुरक्षित रूप से प्राप्त होता है"></li>
+              <li data-en="You get feedback from happy buyers" data-hi="आपको खुश ग्राहकों से प्रतिक्रिया मिलती है"></li>
+              <li data-en="You become part of a growing women's community" data-hi="आप एक बढ़ती महिला समुदाय का हिस्सा बन जाती हैं"></li>
+              <li data-en="We invite you to learning sessions and local events!" data-hi="हम आपको सीखने के सत्र और स्थानीय कार्यक्रमों में आमंत्रित करते हैं!"></li>
+            </ul>
+            <div class="community-illustration" style="background-color: #e8f5e9;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-message">
+      <p class="future-message" data-en="It's not just about selling — it's about building a future." data-hi="यह सिर्फ बेचने के बारे में नहीं है — यह भविष्य बनाने के बारे में है।"></p>
+      <!-- Change your button to this: -->
+      <a href="become-a-seller.html" target="_blank" id="becomeSellerBtn" class="cta-button visible pulse-animate">
+        <span data-en="Become a Seller" data-hi="विक्रेता बनें">Become a Seller</span>
+      </a>
+      
+    </div>
+  </section>
+
+
+  <section class="features-services" id="features-services">
+    <div class="section-header">
+      <h2 data-en="Features & Services" data-hi="सुविधाएं और सेवाएं">Features & Services</h2>
+      <p class="tagline" data-en="Empowering Women. Creating Opportunities. Connecting Communities." 
+         data-hi="महिलाओं को सशक्त बनाना। अवसर पैदा करना। समुदायों को जोड़ना।"></p>
+    </div>
+  
+    <!-- For Women Sellers -->
+    <div class="features-group animate-group">
+      <h3 class="group-title" data-en="~ For Women Sellers ~" data-hi="~ महिला विक्रेताओं के लिए ~"></h3>
+      <p class="group-subtitle" data-en="Sell What You Make, From Where You Are" 
+         data-hi="जो बनाएं वो बेचें, जहां हैं वहीं से"></p>
+      
+      <div class="features-grid seller-features">
+        <!-- Box 1 -->
+        <div class="feature-box" style="--box-color: #ff9a9e; --box-color2: #fad0c4;">
+          <div class="feature-icons">
+            <img src="images/work-from-home.png" alt="Home Business" class="feature-img">
+          </div>
+          <h4 data-en="Business From Home" data-hi="घर से हस्तनिर्मित व्यवसाय"></h4>
+          <p data-en="Handmade snacks, pottery, bamboo crafts — start your own business from home and sell across India without needing a shop." 
+             data-hi="हस्तनिर्मित नाश्ते, मिट्टी के बर्तन, बांस की कलाकृतियाँ — अपना घर से व्यवसाय शुरू करें और बिना दुकान के पूरे भारत में बेचें।"></p>
+          <div class="feature-wave"></div>
+        </div>
+        
+        <!-- Box 2 -->
+        <div class="feature-box" style="--box-color: #a1c4fd; --box-color2: #c2e9fb;">
+          <div class="feature-icons">
+            <img src="images/language.png" alt="Language Support" class="feature-img">
+          </div>
+          <h4 data-en="Personal Support in Hindi & English" data-hi="हिंदी और अंग्रेजी में व्यक्तिगत सहायता"></h4>
+          <p data-en="From the first form to your first sale — our team will assist you step-by-step, in your preferred language." 
+             data-hi="पहले फॉर्म से लेकर पहली बिक्री तक — हमारी टीम आपकी पसंदीदा भाषा में आपकी सहायता करेगी।"></p>
+          <div class="feature-wave"></div>
+        </div>
+        
+        <!-- Box 3 -->
+        <div class="feature-box" style="--box-color: #ffecd2; --box-color2: #fcb69f;">
+          <div class="feature-icons">
+            <img src="images/phone-call.png" alt="Practical Training" class="feature-img">
+          </div>
+          <h4 data-en="Simple, Practical Training" data-hi="सरल, व्यावहारिक प्रशिक्षण"></h4>
+          <p data-en="No confusing apps or long online courses — just friendly phone calls, voice notes, and short videos to guide you through everything." 
+             data-hi="कोई भ्रमित करने वाले ऐप या लंबे ऑनलाइन कोर्स नहीं — बस दोस्ताना फोन कॉल, वॉइस नोट्स और छोटे वीडियो आपको हर चीज में मार्गदर्शन देंगे।"></p>
+          <div class="feature-wave"></div>
+        </div>
+        
+        <!-- Box 4 -->
+        <div class="feature-box" style="--box-color: #84fab0; --box-color2: #8fd3f4;">
+            <div class="feature-wave"></div>
+          <div class="feature-icons">
+            <img src="images/meeting.png" alt="Supportive Community" class="feature-img">
+          </div>
+          <h4 data-en="Supportive Women's Community" data-hi="सहायक महिला समुदाय"></h4>
+          <p data-en="You're not alone. Join a growing circle of women learning, earning, and growing together." 
+             data-hi="आप अकेली नहीं हैं। सीखने, कमाने और एक साथ बढ़ने वाली महिलाओं के बढ़ते समुदाय में शामिल हों।"></p>
+          
+        </div>
+      </div>
+    </div>
+  
+    <!-- For Delivery Partners -->
+    <div class="features-group animate-group">
+      <h3 class="group-title" data-en="~ For Delivery Partners ~" data-hi="~ डिलीवरी पार्टनर्स के लिए ~"></h3>
+      
+      <div class="features-grid delivery-features">
+        <!-- Box 1 -->
+        <div class="feature-box" style="--box-color: #ffc3a0; --box-color2: #ffafbd;">
+          <div class="feature-icons">
+            <img src="images/truck.png" alt="Purposeful Work" class="feature-img">
+          </div>
+          <h4 data-en="Not Just a Job — Be Part of a Purpose" data-hi="सिर्फ नौकरी नहीं — एक उद्देश्य का हिस्सा बनें"></h4>
+          <p data-en="Every delivery you make helps a woman build her dream. You become part of a family that values trust and growth." 
+             data-hi="हर डिलीवरी जो आप करते हैं वो एक महिला के सपने को बनाने में मदद करती है। आप एक ऐसे परिवार का हिस्सा बनते हैं जो विश्वास और विकास को महत्व देता है।"></p>
+          <div class="feature-dots"></div>
+        </div>
+        
+        <!-- Box 2 -->
+        <div class="feature-box" style="--box-color: #a6c1ee; --box-color2: #fbc2eb;">
+          <div class="feature-icons">
+            <img src="images/time.png" alt="Flexible Work" class="feature-img">
+          </div>
+          <h4 data-en="Flexible Work with Fair Pay" data-hi="लचीले काम के साथ उचित भुगतान"></h4>
+          <p data-en="Choose your hours, work locally, and earn with dignity. We provide all the support you need to succeed." 
+             data-hi="अपने घंटे चुनें, स्थानीय स्तर पर काम करें और गरिमा के साथ कमाएँ। हम आपको सफल होने के लिए सभी सहायता प्रदान करते हैं।"></p>
+          <div class="feature-dots"></div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- For Customers -->
+    <div class="features-group animate-group">
+      <h3 class="group-title" data-en="~ For Customers ~" data-hi="~ ग्राहकों के लिए ~"></h3>
+      
+      <div class="features-grid customer-features">
+        <!-- Box 1 -->
+        <div class="feature-box" style="--box-color: #d4fc79; --box-color2: #96e6a1;">
+          <div class="feature-icons">
+            <img src="images/mobile-shopping.png" alt="Artisanal Products" class="feature-img">
+          </div>
+          <h4 data-en="Shop Artisanal Snacks & Crafts" data-hi="कलात्मक नाश्ते और कलाकृतियाँ खरीदें"></h4>
+          <p data-en="From homemade snacks to eco-friendly bamboo products and beautiful pottery — discover unique, handmade items filled with love and tradition." 
+             data-hi="घर के बने नाश्ते से लेकर पर्यावरण के अनुकूल बांस उत्पाद और सुंदर मिट्टी के बर्तन — प्यार और परंपरा से भरी अद्वितीय, हस्तनिर्मित वस्तुओं की खोज करें।"></p>
+          <div class="feature-zigzag"></div>
+        </div>
+        
+        <!-- Box 2 -->
+        <div class="feature-box" style="--box-color: #f093fb; --box-color2: #f5576c;">
+          <div class="feature-icons">
+            <img src="images/success.png" alt="Support Women" class="feature-img">
+          </div>
+          <h4 data-en="Support Real Women Entrepreneurs" data-hi="वास्तविक महिला उद्यमियों का समर्थन करें"></h4>
+          <p data-en="Each purchase helps an Indian woman earn from home, gain confidence, and grow her skills." 
+             data-hi="हर खरीदारी एक भारतीय महिला को घर से कमाने, आत्मविश्वास हासिल करने और अपने कौशल को बढ़ाने में मदद करती है।"></p>
+          <div class="feature-zigzag"></div>
+        </div>
+        
+        <!-- Box 3 -->
+        <div class="feature-box" style="--box-color: #5ee7df; --box-color2: #b490ca;">
+          <div class="feature-icons">
+            <img src="images/hand-made.png" alt="Ethical Products" class="feature-img">
+          </div>
+          <h4 data-en="Ethical, Handmade & Heartfelt" data-hi="नैतिक, हस्तनिर्मित और हार्दिक"></h4>
+          <p data-en="No machines. No mass production. Just handcrafted products with meaningful stories — made sustainably, delivered responsibly." 
+             data-hi="कोई मशीनें नहीं। कोई बड़े पैमाने पर उत्पादन नहीं। बस सार्थक कहानियों वाले हस्तनिर्मित उत्पाद — टिकाऊ तरीके से बनाए गए, जिम्मेदारी से वितरित।"></p>
+          <div class="feature-zigzag"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seller Reviews Section -->
+<section class="seller-reviews" id="reviews">
+    <div class="section-header">
+      <h2 data-en="Seller Reviews" data-hi="विक्रेता समीक्षाएं">Seller Reviews</h2>
+      <p class="tagline" data-en="Hear from empowered women entrepreneurs" 
+         data-hi="सशक्त महिला उद्यमियों से सुनें"></p>
+    </div>
+  
+    <div class="reviews-container">
+      <!-- Review 1 -->
+      <div class="review-card animate-review">
+        <div class="reviewer-info">
+            <div class="avatar" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80')"></div>
+          <div class="reviewer-details">
+            <h4 data-en="Priya Sharma" data-hi="प्रिया शर्मा">Priya Sharma</h4>
+            <div class="stars">
+              ★★★★★
+              <span data-en="(Pottery Artist)" data-hi="(मिट्टी के बर्तन कलाकार)"></span>
+            </div>
+          </div>
+        </div>
+        <div class="review-content">
+          <p data-en="Vanika gave me the confidence to turn my hobby into a business. Within 3 months, I'm earning ₹15,000/month working from home. The support team helped me at every step in Hindi." 
+             data-hi="वनिका ने मुझे अपने शौक को व्यवसाय में बदलने का आत्मविश्वास दिया। 3 महीने के भीतर, मैं घर से काम करके ₹15,000/माह कमा रही हूँ। सहायता टीम ने हर कदम पर हिंदी में मदद की।"></p>
+          <div class="floating-shapes">
+            <div class="shape circle"></div>
+            <div class="shape triangle"></div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Review 2 -->
+      <div class="review-card animate-review">
+        <div class="reviewer-info">
+            <div class="avatar" style="background-image: url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80')"></div>
+          <div class="reviewer-details">
+            <h4 data-en="Sunita Patel" data-hi="सुनीता पटेल">Sunita Patel</h4>
+            <div class="stars">
+              ★★★★☆
+              <span data-en="(Bamboo Crafts)" data-hi="(बांस शिल्प)"></span>
+            </div>
+          </div>
+        </div>
+        <div class="review-content">
+          <p data-en="As a widow with no prior business experience, Vanika's training helped me understand pricing and packaging. I've connected with 10 other women sellers in my area through this platform." 
+             data-hi="बिना किसी व्यवसायिक अनुभव के विधवा के रूप में, वनिका के प्रशिक्षण ने मुझे मूल्य निर्धारण और पैकेजिंग समझने में मदद की। मैंने इस प्लेटफॉर्म के माध्यम से अपने क्षेत्र की 10 अन्य महिला विक्रेताओं से जुड़ी हूँ।"></p>
+          <div class="floating-shapes">
+            <div class="shape square"></div>
+            <div class="shape wave"></div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Review 3 -->
+      <div class="review-card animate-review">
+        <div class="reviewer-info">
+            <div class="avatar" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80')"></div>
+          <div class="reviewer-details">
+            <h4 data-en="Meena Kumari" data-hi="मीना कुमारी">Meena Kumari</h4>
+            <div class="stars">
+              ★★★★★
+              <span data-en="(Homemade Snacks)" data-hi="(घर का बना नाश्ता)"></span>
+            </div>
+          </div>
+        </div>
+        <div class="review-content">
+          <p data-en="The WhatsApp support is amazing! They helped me click good product photos with my basic phone. My pickle business now gets orders from 5 different states. My husband respects my contribution now." 
+             data-hi="व्हाट्सएप सहायता अद्भुत है! उन्होंने मेरे बेसिक फोन से अच्छे उत्पाद फोटो लेने में मदद की। मेरे अचार के व्यवसाय को अब 5 अलग-अलग राज्यों से ऑर्डर मिलते हैं। अब मेरे पति मेरे योगदान का सम्मान करते हैं।"></p>
+          <div class="floating-shapes">
+            <div class="shape circle"></div>
+            <div class="shape zigzag"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer class="animated-footer" lang="en">
+    <div class="footer-wave"></div>
+    
+    <div class="footer-content">
+        <div class="footer-column logo-column">
+            <div class="logo-container">
+                <img src="images/VANIKA.png" alt="Vanika Logo" class="footer-logo">
+                <h3>Vanika</h3>
+              </div>
+            <p data-en="Empowering Women Entrepreneurs" data-hi="महिला उद्यमियों को सशक्त बनाना">Empowering Women Entrepreneurs</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+    
+        <div class="footer-column">
+            <h4 data-en="Quick Links" data-hi="त्वरित लिंक">Quick Links</h4>
+            <ul>
+                <li><a href="#" data-en="Home" data-hi="होम">Home</a></li>
+                <li><a href="#seller-journey" data-en="Become a Seller" data-hi="विक्रेता बनें">Become a Seller</a></li>
+                <li><a href="Seller/login.html" data-en="Seller Login" data-hi="विक्रेता लॉगिन">Seller Login</a></li>
+                <li><a href="#features-services" data-en="Features" data-hi="विशेषताएं">Features</a></li>
+                <li><a href="#about-us" data-en="About Us" data-hi="हमारे बारे में">About Us</a></li>
+                <li><a href="contact-us.html" data-en="Contact" data-hi="संपर्क करें">Contact</a></li>
+                <li><a href="help.html" data-en="Help" data-hi="सहायता">Help</a></li>
+                <li><a href="#reviews" data-en="Success Stories" data-hi="सफलता की कहानियां">Success Stories</a></li>
+            </ul>
+        </div>
+    
+        <div class="footer-column">
+            <h4 data-en="Contact Us" data-hi="संपर्क करें">Contact Us</h4>
+            <ul class="contact-info">
+                <li>
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <span>hello@vanika.com</span>
+                </li>
+                <li>
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                    <span data-en="+91 9876543210" data-hi="+९१ ९८७६५४३२१०">+91 9876543210</span>
+                </li>
+                <li>
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span data-en="Mumbai, India" data-hi="मुंबई, भारत">Mumbai, India</span>
+                </li>
+            </ul>
+        </div>
+    
+        <div class="footer-column newsletter">
+            <h4 data-en="Stay Updated" data-hi="अपडेट रहें">Stay Updated</h4>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your Email" data-enplaceholder="Your Email" data-hiplaceholder="आपका ईमेल">
+                <button type="submit" data-en="Subscribe" data-hi="सब्सक्राइब">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p data-en="© 2025 Vanika. All rights reserved." data-hi="© २०२५ वनिका। सर्वाधिकार सुरक्षित।">© 2023 Vanika. All rights reserved.</p>
+        <button class="back-to-top" aria-label="Back to top">
+            <svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+        </button>
+    </div>
+</footer>
+
+<script src="homepage.js"></script>
+</body>
+</html>
